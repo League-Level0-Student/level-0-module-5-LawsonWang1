@@ -63,11 +63,11 @@ public class AmazingRings extends PApplet {
     		x+=speed;
     	}
     	if (x > 225) {
-        	for(int r = 0; r < 450; r+=10) {
-        	ellipse(x+175,340,r,r);
-        		}
-        		x-=speed;
+        for(int r = 0; r < 450; r+=10) {
+        ellipse(x+175,340,r,r);
         	}
+        	x-=speed;
+        }
     }
 
     static public void main(String[] args) {
