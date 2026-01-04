@@ -41,20 +41,33 @@ public class AmazingRings extends PApplet {
     static final int HEIGHT = 600;
 
     PImage waldo;
-
+    int x = 400;
+	int speed = 1;
     @Override
     public void settings() {
-
+    	size(1150, 680);
     }
 
     @Override
     public void setup() {
-
+    	noFill();
     }
 
     @Override
     public void draw() {
-
+    	background(255,255,255);
+    	if (x < 750) {
+    	for(int r = 0; r < 450; r+=10) {
+    	ellipse(x,340,r,r);
+    		}
+    		x+=speed;
+    	}
+    	if (x > 225) {
+        	for(int r = 0; r < 450; r+=10) {
+        	ellipse(x+175,340,r,r);
+        		}
+        		x-=speed;
+        	}
     }
 
     static public void main(String[] args) {
