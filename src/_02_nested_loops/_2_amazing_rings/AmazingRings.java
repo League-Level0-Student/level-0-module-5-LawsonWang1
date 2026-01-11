@@ -37,40 +37,40 @@ import processing.core.PImage;
  *    These rings must also "bounce" off the sides of the window.
  */
 public class AmazingRings extends PApplet {
-    static final int WIDTH = 800;
-    static final int HEIGHT = 600;
+	static final int WIDTH = 800;
+	static final int HEIGHT = 600;
 
-    PImage waldo;
-    int x = 400;
-	int speed = 1;
-    @Override
-    public void settings() {
-    	size(1150, 680);
-    }
+	PImage waldo;
+	int x = 400;
+	int speed = 10;
 
-    @Override
-    public void setup() {
-    	noFill();
-    }
+	@Override
+	public void settings() {
+		size(1150, 680);
+	}
 
-    @Override
-    public void draw() {
-    	background(255,255,255);
-    	if (x < 750) {
-    	for(int r = 0; r < 450; r+=10) {
-    	ellipse(x,340,r,r);
-    		}
-    		x+=speed;
-    	}
-    	if (x > 225) {
-        for(int r = 0; r < 450; r+=10) {
-        ellipse(x+175,340,r,r);
-        	}
-        	x-=speed;
-        }
-    }
+	@Override
+	public void setup() {
+		noFill();
+	}
 
-    static public void main(String[] args) {
-        PApplet.main(AmazingRings.class.getName());
-    }
+	@Override
+	public void draw() {
+		background(255, 255, 255);
+		for (int r = 0; r < 450; r += 10) {
+			ellipse(x, 350, r, r);
+			ellipse(WIDTH - x + 350, 350, r, r);
+		}
+
+		if (x > 750 || x < 400) {
+			speed = -speed;
+		}
+
+		x += speed;
+		println(x);
+	}
+
+	static public void main(String[] args) {
+		PApplet.main(AmazingRings.class.getName());
+	}
 }
