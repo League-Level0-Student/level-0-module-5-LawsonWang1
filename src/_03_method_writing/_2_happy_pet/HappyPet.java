@@ -8,7 +8,7 @@ public class HappyPet {
 	// 0;
 	// this will be used to store the happiness of your pet
 	static int happinessLevel = 0;
-
+	
 	static String pet = JOptionPane.showInputDialog("Which one of these pets do you want to buy: dog, cat, or fish?");
 
 	public static void main(String[] args) {
@@ -21,10 +21,15 @@ public class HappyPet {
 		// pet happy
 		// (eg: cuddle, food, water, take a walk, groom, clean up poop).
 		// Make sure to customize the title and question too.
+		for (int x = 0; x >= 0; x++) {
 		int petTask = JOptionPane.showOptionDialog(null, "What do you want to do to make your pet happy?",
 				"Interactions", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
 				new String[] { "Feed the pet", "Take the pet on a walk", "Play with the pet" }, null);
 		// 6. Use user input to call the appropriate method created in step 5 below.
+		if (happinessLevel >= 10) {
+			JOptionPane.showMessageDialog(null, "The pet is happy now!");
+			System.exit(0);
+		}
 		switch (petTask) {
 		case 0:
 			food();
@@ -35,12 +40,10 @@ public class HappyPet {
 		case 2:
 			play();
 			break;
+			}
 		}
 		// 7. If you determine the happiness level is large enough, tell the
 		// user that he loves his pet and use break; to exit for loop.
-		if (happinessLevel >= 10) {
-			System.exit(0);
-		}
 	}
 
 	// 5. Create methods to handle each of your user selections.
@@ -56,6 +59,8 @@ public class HappyPet {
 			JOptionPane.showMessageDialog(null, "The cat purred");
 			happinessLevel += 2;
 		} else if (pet.equalsIgnoreCase("fish")) {
+			JOptionPane.showMessageDialog(null, "The fish is happy");
+			
 			happinessLevel +=2;
 		}
 	}
