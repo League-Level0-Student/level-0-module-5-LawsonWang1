@@ -10,6 +10,12 @@ public class EvilPolygonsChallenge {
 	public static void main(String[] args) {
 		
 		//1. Create a new Robot
+		String count = "";
+		for(int i = 5; i >= 0; i--){
+			count += "count" + i + " ";
+		}
+		System.out.println(count);
+	
 
 		//2. Set the speed to 100
 
